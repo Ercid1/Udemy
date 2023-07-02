@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+#define numper 5
+
+int main()
+{
+    float pesos[numper];
+    float suma = 0.0;
+    float promedio;
+    int mayores = 0;
+    int menores = 0;
+
+    printf("Ingrese el peso de las %d personas:\n", numper);
+    for (int i = 0; i < numper; i++)
+    {
+        printf("Persona %d: ", i + 1);
+        scanf("%f", &pesos[i]);
+        suma += pesos[i];
+    }
+
+    promedio = suma / numper;
+
+    for (int i = 0; i < numper; i++)
+    {
+        if (pesos[i] > promedio)
+        {
+            mayores++;
+        }
+        else if (pesos[i] < promedio)
+        {
+            menores++;
+        }
+    }
+
+    printf("\nPromedio de pesos: %.2f\n", promedio);
+    printf("Personas que pesan más que el promedio: %d\n", mayores);
+    printf("Personas que pesan menos que el promedio: %d\n", menores);
+
+    return 0;
+}
