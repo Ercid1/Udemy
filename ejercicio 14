@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    char cadena1[50];
+    char cadena2[50];
+    char cadena3[50];
+    char cadena4[50];
+
+    printf("Ingresa la cadena 1: ");
+    gets(cadena1);
+
+    printf("Ingresa la cadena 2: ");
+    gets(cadena2);
+
+    printf("Ingresa la cadena 3: ");
+    gets(cadena3);
+
+    printf("Ingresa la cadena 4: ");
+    gets(cadena4);
+
+    printf("%s-%s-%s-%s\n", cadena1, cadena2, cadena3, cadena4);
+
+    return 0;
+}
