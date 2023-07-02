@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+    float numeroAlumnos, nota;
+    int aprobados = 0, suspendidos = 0;
+
+    printf("Ingrese el número de alumnos: ");
+    scanf("%f", &numeroAlumnos);
+
+    for (int i = 1; i <= numeroAlumnos; i++)
+    {
+        printf("Ingrese la nota del alumno %d: ", i);
+        scanf("%f", &nota);
+
+        if (nota >= 5.0)
+        {
+            aprobados++;
+        }
+        else
+        {
+            suspendidos++;
+        }
+    }
+
+    printf("Alumnos aprobados: %d\n", aprobados);
+    printf("Alumnos suspendidos: %d\n", suspendidos);
+
+    return 0;
+}
