@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+    float euros, pesetas;
+
+    printf("Ingrese la cantidad de euros: ");
+    scanf("%f", &euros);
+
+    pesetas = euros * 166.386;
+
+    printf("%.2f euros equivale a %.2f pesetas\n", euros, pesetas);
+
+    return 0;
+}
