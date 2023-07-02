@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+#define NUM_HABITACIONES 3
+#define NUM_TEMPORADAS 3
+
+int main()
+{
+    int habitaciones[NUM_HABITACIONES][NUM_TEMPORADAS + 1] = {
+        {1, 120, 150, 220},
+        {2, 130, 160, 230},
+        {3, 100, 120, 200}};
+
+    float promedios[NUM_TEMPORADAS] = {0.0};
+    int totalHabitaciones = 0;
+
+    for (int i = 0; i < NUM_HABITACIONES; i++)
+    {
+        for (int j = 1; j <= NUM_TEMPORADAS; j++)
+        {
+            promedios[j - 1] += habitaciones[i][j];
+        }
+        totalHabitaciones++;
+    }
+
+    for (int i = 0; i < NUM_TEMPORADAS; i++)
+    {
+        promedios[i] /= totalHabitaciones;
+    }
+
+    printf("Promedio de precios por temporada:\n");
+    printf("Temporada Baja: %.2f\n", promedios[0]);
+    printf("Temporada Media: %.2f\n", promedios[1]);
+    printf("Temporada Alta: %.2f\n", promedios[2]);
+
+    return 0;
+}
