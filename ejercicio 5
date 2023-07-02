@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main()
+{
+    int nota;
+
+    printf("Ingrese su nota: ");
+    scanf("%d", &nota);
+
+    if (nota < 5)
+    {
+        printf("Has suspendido\n");
+    }
+    else if (nota == 5)
+    {
+        printf("Has sacado un suficiente\n");
+    }
+    else if (nota == 6)
+    {
+        printf("Has sacado un bien\n");
+    }
+    else if (nota >= 7 && nota <= 8)
+    {
+        printf("Has sacado un notable\n");
+    }
+    else if (nota >= 9 && nota <= 10)
+    {
+        printf("Has sacado un sobresaliente\n");
+    }
+    else
+    {
+        printf("Nota inválida\n");
+    }
+
+    return 0;
+}
