@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+    int numero;
+    int suma = 0;
+    int contador = 0;
+
+    printf("Ingrese un número (0 para finalizar): ");
+    scanf("%d", &numero);
+
+    while (numero != 0)
+    {
+        suma += numero;
+        contador++;
+
+        printf("Ingrese un número (0 para finalizar): ");
+        scanf("%d", &numero);
+    }
+
+    if (contador > 0)
+    {
+        float promedio = (float)suma / contador;
+        printf("Suma de los números: %d\n", suma);
+        printf("Promedio de los números: %.2f\n", promedio);
+    }
+    else
+    {
+        printf("No se ingresaron números\n");
+    }
+
+    return 0;
+}
