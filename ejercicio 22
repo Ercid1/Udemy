@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+struct Hora
+{
+    int hora;
+    int minuto;
+};
+
+struct Entrada
+{
+    struct Hora horaEntrada;
+    int numAsistentes;
+    int edades[100];
+    float precioTotal;
+};
+
+int main()
+{
+    struct Entrada entrada;
+    char opcion;
+
+    do
+    {
+        printf("Hora de entrada (formato HH:MM): ");
+        scanf("%d:%d", &entrada.horaEntrada.hora, &entrada.horaEntrada.minuto);
+
+        printf("Número de asistentes: ");
+        scanf("%d", &entrada.numAsistentes);
+
+        printf("Edades de los asistentes:\n");
+        for (int i = 0; i < entrada.numAsistentes; i++)
+        {
+            printf("Edad del asistente %d: ", i + 1);
+            scanf("%d", &entrada.edades[i]);
+        }
+
+        entrada.precioTotal = 0;
+
+        for (int i = 0; i < entrada.numAsistentes; i++)
+        {
+            if (entrada.edades[i] < 6)
+            {
+                continue;
+            }
+            else if (entrada.edades[i] >= 6 && entrada.edades[i] <= 15)
+            {
+                entrada.precioTotal += 5;
+            }
+            else if (entrada.edades[i] >= 16 && entrada.edades[i] <= 25 || entrada.edades[i] >= 65)
+            {
+                entrada.precioTotal += 8;
+            }
+            else
+            {
+                entrada.precioTotal += 10;
+            }
+        }
+
+        if (entrada.numAsistentes >= 5)
+        {
+            entrada.precioTotal *= 0.9;
+        }
+
+        printf("Precio total de la entrada: %.2f dólares\n", entrada.precioTotal);
+
+        printf("¿Desea ingresar los datos de otro grupo? (S) para continuar o (N) para salir: ");
+        scanf(" %c", &opcion);
+
+    } while (opcion == 'S' || opcion == 's');
+
+    printf("Hasta luego\n");
+
+    return 0;
+}
