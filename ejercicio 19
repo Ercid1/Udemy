@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int numero;
+    printf("Ingrese un número entero entre 1 y 10: ");
+    scanf("%d", &numero);
+
+    if (numero < 1 || numero > 10)
+    {
+        printf("El número ingresado está fuera del rango válido.\n");
+        return 1;
+    }
+
+    FILE *archivo = fopen("tabla.txt", "w");
+    if (archivo == NULL)
+    {
+        printf("No se pudo abrir el archivo.\n");
+        return 1;
+    }
+
+    fprintf(archivo, "Tabla de multiplicar del %d:\n", numero);
+    for (int i = 1; i <= 10; i++)
+    {
+        fprintf(archivo, "%d x %d = %d\n", numero, i, numero * i);
+    }
+
+    fclose(archivo);
+    printf("La tabla de multiplicar se ha guardado en el archivo tabla.txt\n");
+
+    return 0;
+}
