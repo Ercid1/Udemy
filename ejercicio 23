@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct producto
+{
+    int codigo;
+    char descripcion[50];
+    float precio;
+};
+
+int main()
+{
+    struct producto *ptrProducto;
+
+    ptrProducto = (struct producto *)malloc(sizeof(struct producto));
+
+    if (ptrProducto == NULL)
+    {
+        printf("Error al reservar memoria.\n");
+        return 1;
+    }
+
+    printf("Ingrese el código del producto: ");
+    scanf("%d", &(ptrProducto->codigo));
+
+    printf("Ingrese la descripción del producto: ");
+    scanf(" %[^\n]", ptrProducto->descripcion);
+
+    printf("Ingrese el precio del producto: ");
+    scanf("%f", &(ptrProducto->precio));
+
+    printf("\nCódigo: %d\n", ptrProducto->codigo);
+    printf("Descripción: %s\n", ptrProducto->descripcion);
+    printf("Precio: %.2f\n", ptrProducto->precio);
+
+    free(ptrProducto);
+    ptrProducto = NULL;
+
+    return 0;
+}
